@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/colorLightGreenHover">
+    <item android:state_window_focused="false" android:state_enabled="true"
+        android:drawable="@drawable/drawable_background_button_login_normal" />
+
+    <item android:state_pressed="true"
+        android:drawable="@drawable/drawable_background_button_login_hover" />
+
+    <item android:state_focused="true" android:state_enabled="true"
+        android:drawable="@drawable/drawable_background_button_login_hover" />
+
+    <item android:state_enabled="true"
+        android:drawable="@drawable/drawable_background_button_login_normal" />
+</ripple>

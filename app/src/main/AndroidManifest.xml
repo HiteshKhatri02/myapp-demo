@@ -1,0 +1,69 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.myapp.demo">
+    <!--Permission for  wake lock-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--Permission for network state-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- Permission for phone state -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Permission for camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Permission for read/write -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.STORAGE" />
+
+    <application
+        android:name=".AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:fullBackupContent="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!-- firebase messaging service -->
+        <service
+            android:name=".services.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <!--firebase_iid_service -->
+        <service
+            android:name=".services.MyFirebaseInstanceIDService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <!--Splash activity-->
+        <activity android:name=".activities.SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--Login activity-->
+        <activity android:name=".activities.LoginActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+
+        <!--Edit Profile activity-->
+        <activity android:name=".activities.EditProfileActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--fireBase authorisation activity-->
+        <activity android:name=".activities.FireBaseAuthActivity" />
+
+
+    </application>
+
+</manifest>

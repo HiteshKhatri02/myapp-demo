@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape
+            android:shape="oval">
+            <stroke android:color="@color/colorPrimaryDark"
+                android:width="0.8dp"/>
+            <solid
+                android:color="@color/colorTransparent"/>
+            <size
+                android:width="60dp"
+                android:height="60dp"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/ic_person_black"
+        android:top="@dimen/activity_horizontal_margin"
+        android:bottom="@dimen/activity_horizontal_margin"
+        android:left="@dimen/activity_horizontal_margin"
+        android:right="@dimen/activity_horizontal_margin"
+        android:gravity="center"/>
+</layer-list>

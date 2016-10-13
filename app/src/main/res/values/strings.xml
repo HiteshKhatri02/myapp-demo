@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="title_login">Login</string>
+    <string name="text_please_check_internet">Internet connection error. Please try again.</string>
+    <string name="validation_all_field_required">All fields are mandatory.</string>
+    <string name="hint_contact_no">Enter your contact no.</string>
+    <string name="hint_blood_group">Blood Group</string>
+    <string name="hint_acronym_day_of_birth">DD</string>
+    <string name="hint_acronym_month_of_birth">MM</string>
+    <string name="hint_acronym_year_of_birth">YYYY</string>
+    <string name="hint_enter_password">Enter you password.</string>
+    <string name="text_save">Save</string>
+    <string name="text_logout">Logout</string>
+    <string name="hint_re_enter_password">Re-Enter Password.</string>
+    <string name="validation_email_not_correct">Email is not valid.</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="validation_profile_picture">Pick your profile picture.</string>
+    <string name="validation_password_do_not_match">You entered incorrect password.</string>
+    <string name="validation_for_retyped_password">Re-entered password is not matched.</string>
+    <string name="text_enter_value_in_databse">Would you like insert values in Database.</string>
+    <string name="text_update_value_in_database">Would you like update values in Database.</string>
+    <string name="text_data_has_been_saved">Data has been saved.</string>
+    <string name="validation_min_password_length">Password should not be less than 6 characters.</string>
+    <string name="validation_contact_no_length">Mobile number should not be less than 10 digits.</string>
+</resources>
