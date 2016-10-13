@@ -40,7 +40,7 @@
         android:layout_margin="10dp"
         android:text="@string/cancel"
         android:background="@color/colorPrimary"
-        android:textColor="#FFF"
+        android:textColor="@color/colorWhite"
         android:textStyle="bold" />
 
 </LinearLayout>

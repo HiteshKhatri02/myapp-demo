@@ -9,7 +9,7 @@
     <color name="colorWhite">#ffffffff</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorAlertBackground">#607D8B</color>
-    <color name="colorImagePickerBackground">#FFCADEFF</color>
+    <color name="colorImagePickerBackground">#00c1c1</color>
 
 
 </resources>
