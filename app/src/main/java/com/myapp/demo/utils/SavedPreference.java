@@ -12,7 +12,7 @@ public class SavedPreference {
     private final SharedPreferences preferences;
 
     public SavedPreference(Context context){
-        String user_pref = "MyTake";
+        String user_pref = "MyApp";
         preferences=context.getSharedPreferences(user_pref,MODE_PRIVATE);
     }
 
@@ -34,7 +34,7 @@ public class SavedPreference {
     }
     //Method to get user id.
     public String getUserId(){
-        return preferences.getString("user_id",null);
+        return preferences.getString("user_id","");
     }
 
 

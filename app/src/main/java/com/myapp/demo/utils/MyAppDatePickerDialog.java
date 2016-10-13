@@ -1,5 +1,6 @@
 package com.myapp.demo.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,7 +14,9 @@ import android.widget.NumberPicker;
 import com.myapp.demo.R;
 import com.myapp.demo.callbacks.MyAppDateSet;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Custom App picker dialog shows individual day, month and year dialog
@@ -52,6 +55,13 @@ public class MyAppDatePickerDialog extends DialogFragment {
             c.set(Calendar.MONTH,getArguments().getInt("month")-1);
             dayPicker.setMinValue(1);
             dayPicker.setMaxValue(c.getActualMaximum(Calendar.DAY_OF_MONTH));
+            dayPicker.setFormatter(new NumberPicker.Formatter() {
+                @SuppressLint("DefaultLocale")
+                @Override
+                public String format(int i) {
+                    return String.format("%02d", i);
+                }
+            });
             dayPicker.setValue(c.getActualMaximum(Calendar.DAY_OF_MONTH));
             monthPicker.setVisibility(View.GONE);
             yearPicker.setVisibility(View.GONE);
@@ -60,6 +70,13 @@ public class MyAppDatePickerDialog extends DialogFragment {
             monthPicker.setMinValue(1);
             monthPicker.setMaxValue(12);
             monthPicker.setValue(c.getActualMaximum(Calendar.DAY_OF_MONTH));
+            monthPicker.setFormatter(new NumberPicker.Formatter() {
+                @SuppressLint("DefaultLocale")
+                @Override
+                public String format(int i) {
+                    return String.format("%02d", i);
+                }
+            });
             dayPicker.setVisibility(View.GONE);
             yearPicker.setVisibility(View.GONE);
         }else {
@@ -74,23 +91,28 @@ public class MyAppDatePickerDialog extends DialogFragment {
         builder.setView(dialog)
                 // Add action buttons
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @SuppressLint("DefaultLocale")
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         MyAppDatePickerDialog.this.getDialog().cancel();
                         switch (buttonClicked){
                             case R.id.picker_day:
                                 if (null!=myAppDateSet){
-                                    myAppDateSet.onSet(dayPicker.getValue(),0,0);
+                                    DecimalFormat formatter = new DecimalFormat("00");
+                                    String day = formatter.format(dayPicker.getValue());
+                                    myAppDateSet.onSet(day,null,null);
                                 }
                                 break;
                             case R.id.picker_month:
                                 if (null!=myAppDateSet){
-                                    myAppDateSet.onSet(0,monthPicker.getValue(),0);
+                                    DecimalFormat formatter = new DecimalFormat("00");
+                                    String month = formatter.format(monthPicker.getValue());
+                                    myAppDateSet.onSet(null,month,null);
                                 }
                                 break;
                             case R.id.picker_year:
                                 if (null!=myAppDateSet){
-                                    myAppDateSet.onSet(0,0,yearPicker.getValue());
+                                    myAppDateSet.onSet(null,null,String.valueOf(yearPicker.getValue()));
                                 }
                                 break;
                         }

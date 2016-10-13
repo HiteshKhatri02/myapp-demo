@@ -5,5 +5,5 @@ package com.myapp.demo.callbacks;
  */
 
 public interface MyAppDateSet {
-    void onSet(int day,int month,int year);
+    void onSet(String day,String month,String year);
 }

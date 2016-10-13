@@ -343,20 +343,20 @@ public class EditProfileActivity extends FireBaseAuthActivity implements View.On
     public void showDatePickerDialog( final Bundle bundle) {
         DialogFragment newFragment = MyAppDatePickerDialog.newInstance(bundle, new MyAppDateSet() {
             @Override
-            public void onSet(int day, int month, int year) {
+            public void onSet(String day, String month, String year) {
                 switch (bundle.getInt("viewId")){
                     case R.id.tv_year_of_birth:
-                        ((MyAppTextView)findViewById(R.id.tv_year_of_birth)).setText(String.valueOf(year));
+                        ((MyAppTextView)findViewById(R.id.tv_year_of_birth)).setText(year);
                         findViewById(R.id.tv_month_of_birth).setAlpha(1f);
                         findViewById(R.id.tv_month_of_birth).setEnabled(true);
                         break;
                     case R.id.tv_month_of_birth:
-                        ((MyAppTextView)findViewById(R.id.tv_month_of_birth)).setText(String.valueOf(month));
+                        ((MyAppTextView)findViewById(R.id.tv_month_of_birth)).setText(month);
                         findViewById(R.id.tv_day_of_birth).setAlpha(1f);
                         findViewById(R.id.tv_day_of_birth).setEnabled(true);
                         break;
                     case R.id.tv_day_of_birth:
-                        ((MyAppTextView)findViewById(R.id.tv_day_of_birth)).setText(String.valueOf(day));
+                        ((MyAppTextView)findViewById(R.id.tv_day_of_birth)).setText(day);
                         break;
                 }
             }
