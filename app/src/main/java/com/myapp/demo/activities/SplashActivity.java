@@ -30,7 +30,7 @@ public class SplashActivity extends BaseActivity{
     private void init(){
         //Check user id is exists or not if exists then skip login screen
         SavedPreference savedPreference=new SavedPreference(SplashActivity.this);
-        if (TextUtils.isEmpty(savedPreference.getUserId())){
+        if (TextUtils.isEmpty(savedPreference.getUserId().trim())){
             //Open Login Activity
             startActivity(new Intent(SplashActivity.this,LoginActivity.class));
             finish();

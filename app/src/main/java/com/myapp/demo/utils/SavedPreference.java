@@ -12,7 +12,7 @@ public class SavedPreference {
     private final SharedPreferences preferences;
 
     public SavedPreference(Context context){
-        String user_pref = "MyApp";
+        String user_pref = "com.myapp.demo";
         preferences=context.getSharedPreferences(user_pref,MODE_PRIVATE);
     }
 
@@ -29,12 +29,12 @@ public class SavedPreference {
     //method to store user id
     public void storeUserID(String userId){
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("user_id", userId);
+        editor.putString("demo_user_id", userId);
         editor.apply();
     }
     //Method to get user id.
     public String getUserId(){
-        return preferences.getString("user_id","");
+        return preferences.getString("demo_user_id","");
     }
 
 
