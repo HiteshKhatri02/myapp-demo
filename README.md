@@ -83,6 +83,39 @@ In *SplashActivity* I just checked if shared preference has a value then go to t
     }
 ```
 <br/>
+#Login Screen 
+For login I have used firebase authentication also provided the credential to login into the app.
+
+![alt tag](https://github.com/HiteshKhatri02/myapp-demo/blob/cc25d0eb1e049abe037edc7d8a20eb846789cff0/ScreenShots/Screenshot_1482050497.png)
+
+For this first I have included firebase authentication gradle in app's build.gradle <br/>
+	**compile 'com.google.firebase:firebase-auth:9.6.1'**<br/>
+	**compile 'com.google.firebase:firebase-database:9.6.1'*<br/>* 
+
+and In Project's directory I included <br/>
+
+	**classpath 'com.google.gms:google-services:3.0.0'**
+
+then Initialised Firebase in app controlller class<br/>
+
+	**FirebaseApp.initializeApp(this);**
+
+I made an FirebaseAuthentication class to handle sign in and log out fro firebase instance. Used MD5Encryption for saving the password. <br/>
+
+#Edit Profile Screen 
+
+![alt tag](https://github.com/HiteshKhatri02/myapp-demo/blob/cc25d0eb1e049abe037edc7d8a20eb846789cff0/ScreenShots/Screenshot_1482050685.png)
+
+
+In edit profile screen I made custom date picker dialog, gave functionality to choose profile picture from glaery or from camera. Provided logout functionality as well.
+
+
+
+
+
+
+
+
 
 
 
