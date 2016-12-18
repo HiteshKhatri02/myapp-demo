@@ -1,68 +1,27 @@
 {
   "project_info": {
-    "project_number": "162758174836",
-    "firebase_url": "https://fir-55a23.firebaseio.com",
-    "project_id": "fir-55a23",
-    "storage_bucket": "fir-55a23.appspot.com"
+    "project_number": "38889835902",
+    "firebase_url": "https://myapp-b05c4.firebaseio.com",
+    "project_id": "myapp-b05c4",
+    "storage_bucket": "myapp-b05c4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:162758174836:android:cfbc3aa140ee9b98",
+        "mobilesdk_app_id": "1:38889835902:android:cfbc3aa140ee9b98",
         "android_client_info": {
           "package_name": "com.myapp.demo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "162758174836-gdslc9la9dvmv2imt2397hf9nrt60r1c.apps.googleusercontent.com",
+          "client_id": "38889835902-3q9i63u964aevft4v1h6rhs1dm78lr63.apps.googleusercontent.com",
           "client_type": 3
-        }{
-          "project_info": {
-            "project_number": "38889835902",
-            "firebase_url": "https://myapp-b05c4.firebaseio.com",
-            "project_id": "myapp-b05c4",
-            "storage_bucket": "myapp-b05c4.appspot.com"
-          },
-          "client": [
-            {
-              "client_info": {
-                "mobilesdk_app_id": "1:38889835902:android:cfbc3aa140ee9b98",
-                "android_client_info": {
-                  "package_name": "com.myapp.demo"
-                }
-              },
-              "oauth_client": [
-                {
-                  "client_id": "38889835902-3q9i63u964aevft4v1h6rhs1dm78lr63.apps.googleusercontent.com",
-                  "client_type": 3
-                }
-              ],
-              "api_key": [
-                {
-                  "current_key": "AIzaSyB-kWJO-WNMEZF6UmmHDX8xD20nRqBJ4_g"
-                }
-              ],
-              "services": {
-                "analytics_service": {
-                  "status": 1
-                },
-                "appinvite_service": {
-                  "status": 1,
-                  "other_platform_oauth_client": []
-                },
-                "ads_service": {
-                  "status": 2
-                }
-              }
-            }
-          ],
-          "configuration_version": "1"
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB6tD_ltNuLwIY36evErtwiXml7HRi5z08"
+          "current_key": "AIzaSyB-kWJO-WNMEZF6UmmHDX8xD20nRqBJ4_g"
         }
       ],
       "services": {
