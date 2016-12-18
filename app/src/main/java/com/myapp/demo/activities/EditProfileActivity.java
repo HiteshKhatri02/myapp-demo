@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -64,6 +65,7 @@ public class EditProfileActivity extends FireBaseAuthActivity implements View.On
     private DBHelper dbHelper;
 
     private EditProfileModel editProfileModel;
+    private final String TAG="EditProfileActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,17 +73,20 @@ public class EditProfileActivity extends FireBaseAuthActivity implements View.On
         setContentView(R.layout.activity_edit_profile);
         //Init edit profile model
         editProfileModel=new EditProfileModel();
-        //Create data base
-        createDataBase();
-        //read value from database
-        if (null!=dbHelper.searchRecord()){
-            Bundle bundle=dbHelper.searchRecord();
-            setValueToViewFromDB(bundle);
-        }else {
-            String email=new SavedPreference(this).getUserEmail();
-            ((MyAppTextView)findViewById(R.id.tv_user_email)).setText(email);
-        }
-        //Initialise click listeners of the views
+
+        if(savedInstanceState==null){
+            //Create data base
+            createDataBase();
+            //read value from database
+            if (null!=dbHelper.searchRecord()){
+                Bundle bundle=dbHelper.searchRecord();
+                setValueToViewFromDB(bundle);
+            }else {
+                String email=new SavedPreference(this).getUserEmail();
+                ((MyAppTextView)findViewById(R.id.tv_user_email)).setText(email);
+            }
+
+        }        //Initialise click listeners of the views
         findViewById(R.id.image_open_camera).setOnClickListener(this);
         findViewById(R.id.btn_logout).setOnClickListener(this);
         findViewById(R.id.tv_blood_group).setOnClickListener(this);
@@ -167,6 +172,7 @@ public class EditProfileActivity extends FireBaseAuthActivity implements View.On
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        Log.d(TAG,imageCaptureUri.toString());
         outState.putParcelable("picUri", imageCaptureUri);
     }
 
@@ -185,6 +191,7 @@ public class EditProfileActivity extends FireBaseAuthActivity implements View.On
             switch (requestCode) {
                 case AppConstants.PICK_FROM_CAMERA:
                     try {
+                        Log.d(TAG,imageCaptureUri.toString());
                         String path = Utils.getImageFilePath(imageCaptureUri.toString(), EditProfileActivity.this);
                         editProfileModel.setFilePath(path);
                         showImage(path);
@@ -404,7 +411,18 @@ public class EditProfileActivity extends FireBaseAuthActivity implements View.On
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //check sd card is available or not for save image from camera
         if (Utils.isExternalStorageWritable()) {
-            imageCaptureUri = Uri.fromFile(Utils.getImagePath());
+            //For version greater than marshmallow we can fetch image path
+            // using FileProvider.getUriForFile method
+
+            if (android.os.Build.VERSION.SDK_INT >android.os.Build.VERSION_CODES.M) {
+
+                imageCaptureUri = FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", Utils.getImagePath());
+            }else {
+
+                imageCaptureUri = Uri.fromFile(Utils.getImagePath());
+            }
+
+
             try {
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageCaptureUri);
                 intent.putExtra("return-data", false);

@@ -31,7 +31,7 @@ password:- password<br/>
 #Screenshots, Flow and Code Snippet <br/>
 ## Splash Screen
 
-As need not to process any work in splash except fetching user id from shared preference so I did not use handler for delay the next for 1 second. 
+As in the project there is no need not to process any work in splash except fetching user id from shared preference so I did not use handler for delay the next for 1 second. 
 
 For that purpose I just made a drawable and set that drawable in *android:windowBackground* through styles by following this approach
 
@@ -64,7 +64,30 @@ Then I implemented it in Styles <br/>
 
 In *SplashActivity* I just checked if shared preference has a value then go to the edit screen otherwise go to the Login screen. <br/>
 
-To be continued...
+```javascript
+/**
+     * Method to redirect user on login activity or edit profile activity
+     */
+    private void init(){
+        //Check user id is exists or not if exists then skip login screen
+        SavedPreference savedPreference=new SavedPreference(SplashActivity.this);
+        if (TextUtils.isEmpty(savedPreference.getUserId().trim())){
+            //Open Login Activity
+            startActivity(new Intent(SplashActivity.this,LoginActivity.class));
+            finish();
+        }else {
+            //Open Login Activity
+            startActivity(new Intent(SplashActivity.this,EditProfileActivity.class));
+            finish();
+        }
+    }
+```
+<br/>
+
+
+
+
+
 
 
 
